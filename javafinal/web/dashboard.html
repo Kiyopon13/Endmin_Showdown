@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endmin Showdown - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="animated-bg"></div>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <i class="fas fa-gamepad"></i>
+                <span>Endmin Showdown</span>
+            </div>
+            <div class="navbar-user">
+                <div class="user-info">
+                    <img src="https://ui-avatars.com/api/?name=Player&background=0D8ABC&color=fff" alt="Avatar" class="user-avatar">
+                    <span id="username">Player</span>
+                </div>
+                <button class="btn-icon" onclick="goToProfile()">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <button class="btn-icon" onclick="logout()" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-header">
+            <h1>Welcome back, <span id="greetUser">Player</span>! 🎮</h1>
+            <p>Select a game and challenge yourself</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Total Score</h3>
+                    <p class="stat-value" id="totalScore">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Rank</h3>
+                    <p class="stat-value" id="userRank">--</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Win Streak</h3>
+                    <p class="stat-value" id="winStreak">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Games Played</h3>
+                    <p class="stat-value" id="gamesPlayed">0</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Select a Game</h2>
+        <div class="games-grid">
+            <div class="game-card" onclick="navigateToGame('logic-game.html')">
+                <div class="game-card-header">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Logic Game</h3>
+                <p>Test your problem-solving skills</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-star"></i> <span id="logicHighScore">0</span></span>
+                    <span><i class="fas fa-fire"></i> <span id="logicPlayed">0</span></span>
+                </div>
+                <button class="btn btn-sm btn-gradient">Play Now</button>
+            </div>
+
+            <div class="game-card" onclick="navigateToGame('memory-game.html')">
+                <div class="game-card-header">
+                    <i class="fas fa-memory"></i>
+                </div>
+                <h3>Memory Game</h3>
+                <p>Challenge your memory and focus</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-star"></i> <span id="memoryHighScore">0</span></span>
+                    <span><i class="fas fa-fire"></i> <span id="memoryPlayed">0</span></span>
+                </div>
+                <button class="btn btn-sm btn-gradient">Play Now</button>
+            </div>
+
+            <div class="game-card" onclick="navigateToGame('leaderboard-game.html')">
+                <div class="game-card-header">
+                    <i class="fas fa-chess-board"></i>
+                </div>
+                <h3>Game Leaderboard</h3>
+                <p>Check your ranking in all games</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-users"></i> Compete</span>
+                </div>
+                <button class="btn btn-sm btn-gradient">View</button>
+            </div>
+
+            <div class="game-card" onclick="navigateToGame('global-leaderboard.html')">
+                <div class="game-card-header">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Global Leaderboard</h3>
+                <p>See top players worldwide</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-chart-line"></i> Rankings</span>
+                </div>
+                <button class="btn btn-sm btn-gradient">View</button>
+            </div>
+
+            <div class="game-card" onclick="navigateToGame('friends.html')">
+                <div class="game-card-header">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Friends</h3>
+                <p>Connect with other players</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-link"></i> <span id="friendCount">0</span> Friends</span>
+                </div>
+                <button class="btn btn-sm btn-gradient">View</button>
+            </div>
+
+            <div class="game-card" onclick="navigateToGame('profile.html')">
+                <div class="game-card-header">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3>Profile</h3>
+                <p>View and edit your profile</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-cog"></i> Settings</span>
+                </div>
+                <button class="btn btn-sm btn-gradient">View</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="logout-section">
+        <button class="btn btn-logout" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+        </button>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

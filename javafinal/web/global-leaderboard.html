@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endmin Showdown - Global Leaderboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="animated-bg"></div>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <i class="fas fa-gamepad"></i>
+                <span>Endmin Showdown</span>
+            </div>
+            <div class="navbar-user">
+                <button class="btn-back" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="leaderboard-header">
+            <h1>Global Leaderboard</h1>
+            <p>Top players worldwide</p>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterLeaderboard('all')">
+                <i class="fas fa-users"></i>
+                All Games
+            </button>
+            <button class="filter-btn" onclick="filterLeaderboard('logic')">
+                <i class="fas fa-brain"></i>
+                Logic
+            </button>
+            <button class="filter-btn" onclick="filterLeaderboard('memory')">
+                <i class="fas fa-memory"></i>
+                Memory
+            </button>
+        </div>
+
+        <div class="leaderboard-wrapper">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Score</th>
+                        <th>Level</th>
+                        <th>Wins</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody">
+                    <!-- Leaderboard rows will be generated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="user-highlight" id="userHighlight" style="display: none;">
+            <h3>Your Rank</h3>
+            <div class="highlight-card">
+                <span class="rank" id="userRankNum">#--</span>
+                <span class="username" id="userLeaderboardName">You</span>
+                <span class="score" id="userLeaderboardScore">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/leaderboard.js"></script>
+</body>
+</html>

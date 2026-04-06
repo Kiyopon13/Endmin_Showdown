@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endmin Showdown - Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #001a4d 0%, #0a0e27 50%, #0d8abc 100%);
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: rgba(13, 30, 60, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #00d4ff, #0047ab);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+            border-left: 4px solid #00d4ff;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #b0b0b0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #b0b0b0;
+        }
+
+        .section {
+            background: rgba(13, 30, 60, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: #00d4ff;
+            transform: translateY(-5px);
+        }
+
+        .feature-card h4 {
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-card p {
+            margin-bottom: 0;
+        }
+
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid #00ff88;
+            border-radius: 8px;
+        }
+
+        .checklist-item i {
+            color: #00ff88;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .checklist-item span {
+            color: #b0b0b0;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #00d4ff;
+        }
+
+        .btn-start {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #0047ab);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-start:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: #00d4ff;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #b0b0b0;
+        }
+
+        ul li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+        }
+
+        .highlight {
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            color: #808080;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <i class="fas fa-gamepad" style="font-size: 3rem; background: linear-gradient(135deg, #00d4ff, #0047ab); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+            <h1>Endmin Showdown</h1>
+            <p style="margin-bottom: 0; font-size: 1.2rem;">Modern Web-Based Mini Games Platform</p>
+        </header>
+
+        <div class="section">
+            <h2><i class="fas fa-rocket"></i> Quick Start</h2>
+            <p>Welcome to your new modern web UI for Endmin Showdown! This professional frontend features a dark gradient theme, glassmorphism effects, and smooth animations.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">Pages</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Game Modes</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Responsive</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Playable</div>
+                </div>
+            </div>
+
+            <p>To get started:</p>
+            <ul>
+                <li>Open <code>index.html</code> in your browser or serve via local server</li>
+                <li>Create a test account (any username/password)</li>
+                <li>Play games and explore all features</li>
+                <li>Check LocalStorage (DevTools) to see your saved data</li>
+            </ul>
+
+            <a href="index.html" class="btn-start"><i class="fas fa-play"></i> Go to Login Page</a>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-palette"></i> Design Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-gradient"></i> Dark Gradient Theme</h4>
+                    <p>Elegant teal to dark blue gradient with animated background effects creating depth and visual interest.</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-sparkles"></i> Glassmorphism</h4>
+                    <p>Semi-transparent cards with backdrop blur, soft borders, and glow effects for a premium feel.</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-play-circle"></i> Smooth Animations</h4>
+                    <p>Fade, slide, bounce, and flip animations throughout the interface for smooth transitions.</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-mobile-alt"></i> Fully Responsive</h4>
+                    <p>Perfect on desktop, tablet, and mobile devices with adaptive layouts and touch-friendly interfaces.</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-icons"></i> Font Awesome Icons</h4>
+                    <p>Professional icons integrated throughout for better visual communication and user experience.</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-keyboard"></i> Professional Typography</h4>
+                    <p>Poppins and Segoe UI fonts with proper hierarchy and spacing for excellent readability.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-check-circle"></i> Features Implemented</h2>
+            
+            <h3>Authentication System</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Login with form validation</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>User registration system</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Password reset flow (3-step)</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Session management</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Secure logout</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Password visibility toggle</span>
+                </div>
+            </div>
+
+            <h3>Game Pages</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Logic Game with pattern matching</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Memory Game with flip animations</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Score tracking system</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Level progression</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Game over modals</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Pause/Resume functionality</span>
+                </div>
+            </div>
+
+            <h3>Leaderboards</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Global leaderboard with rankings</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Game-specific leaderboards</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Top 3 visual highlighting</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>User rank display</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Sortable/filterable data</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Hover effects on rows</span>
+                </div>
+            </div>
+
+            <h3>Social Features</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Friends list management</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Add/remove friends</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Friend search functionality</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Online/offline status</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Avatar system</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Suggested players</span>
+                </div>
+            </div>
+
+            <h3>User Profile</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Profile page with stats</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Achievement system</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Settings management</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Account deletion</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Statistics dashboard</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Profile avatar display</span>
+                </div>
+            </div>
+
+            <h3>Dashboard</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Interactive game cards</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Quick stat overview</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Easy navigation</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Hover animations on cards</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>User greeting</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Quick logout button</span>
+                </div>
+            </div>
+
+            <h3>UI/UX Elements</h3>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Toast notifications</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Form validation feedback</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Modal dialogs</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Tab navigation</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Loading spinners</span>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check"></i>
+                    <span>Error handling</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-list"></i> Page Guide</h2>
+            
+            <h3>Authentication Pages</h3>
+            <ul>
+                <li><strong>index.html</strong> - Login page with glass-style card, focused inputs, and forgot password link</li>
+                <li><strong>register.html</strong> - Registration with email and password confirmation</li>
+                <li><strong>forgot-password.html</strong> - Multi-step password reset (email → OTP → new password)</li>
+            </ul>
+
+            <h3>Main Application</h3>
+            <ul>
+                <li><strong>dashboard.html</strong> - Main hub with game cards, stats overview, and quick access to all features</li>
+                <li><strong>logic-game.html</strong> - Pattern matching game with grid-based tiles and progressive difficulty</li>
+                <li><strong>memory-game.html</strong> - Card matching game with 3D flip animations</li>
+            </ul>
+
+            <h3>Social & Rankings</h3>
+            <ul>
+                <li><strong>global-leaderboard.html</strong> - Worldwide rankings with filtering and your rank highlight</li>
+                <li><strong>leaderboard-game.html</strong> - Game-specific rankings with separate tabs for each game</li>
+                <li><strong>friends.html</strong> - Friends management with search, add/remove, and online status</li>
+            </ul>
+
+            <h3>User Area</h3>
+            <ul>
+                <li><strong>profile.html</strong> - Profile info, statistics, achievements, and account settings</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-code"></i> Technology Stack</h2>
+            <ul>
+                <li><span class="highlight">HTML5</span> - Semantic markup with proper structure</li>
+                <li><span class="highlight">CSS3</span> - Grid, Flexbox, Custom Properties, Animations, Filters</li>
+                <li><span class="highlight">JavaScript ES6+</span> - Classes, event listeners, local storage</li>
+                <li><span class="highlight">Font Awesome 6</span> - Professional icon library</li>
+                <li><span class="highlight">LocalStorage API</span> - Client-side data persistence</li>
+                <li><span class="highlight">CSS Animations</span> - Keyframes and transitions</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-graduation-cap"></i> For Academic Evaluation</h2>
+            <p>This modern web UI demonstrates professional web development practices:</p>
+            <ul>
+                <li>Modern responsive design with CSS Grid and Flexbox</li>
+                <li>Advanced CSS features: gradients, filters, animations, variables</li>
+                <li>Clean, organized JavaScript with classes and proper separation of concerns</li>
+                <li>Form validation and error handling</li>
+                <li>State management with localStorage</li>
+                <li>User-friendly interface with smooth animations</li>
+                <li>Accessibility considerations (color contrast, semantic HTML)</li>
+                <li>Professional UI/UX design patterns (glassmorphism, dark theme)</li>
+                <li>Cross-browser compatibility</li>
+                <li>Mobile-first responsive design</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-lightbulb"></i> Tips for Best Experience</h2>
+            <ul>
+                <li>Use Chrome, Firefox, or Safari for best visual effects</li>
+                <li>Enable JavaScript for full functionality</li>
+                <li>Open DevTools (F12) to inspect data in LocalStorage</li>
+                <li>Try responsive design by resizing browser or using mobile view</li>
+                <li>Hover over cards and buttons to see animations</li>
+                <li>Check browser console for any development notes</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p><i class="fas fa-star"></i> Endmin Showdown - Modern Web UI <i class="fas fa-star"></i></p>
+            <p>Built for Academic Evaluation | Version 1.0.0</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endmin Showdown - Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="animated-bg"></div>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <i class="fas fa-gamepad"></i>
+                <span>Endmin Showdown</span>
+            </div>
+            <div class="navbar-user">
+                <button class="btn-back" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-banner"></div>
+            <div class="profile-info">
+                <img id="profileAvatar" src="https://ui-avatars.com/api/?name=Player&background=0D8ABC&color=fff&size=120" alt="Profile Avatar" class="profile-avatar">
+                <div class="profile-details">
+                    <h1 id="profileUsername">Player</h1>
+                    <p id="profileEmail">player@example.com</p>
+                    <p class="joined-date">Member since <span id="joinedDate">2024</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchProfileTab('stats')">
+                    <i class="fas fa-chart-bar"></i>
+                    Statistics
+                </button>
+                <button class="tab-btn" onclick="switchProfileTab('achievements')">
+                    <i class="fas fa-medal"></i>
+                    Achievements
+                </button>
+                <button class="tab-btn" onclick="switchProfileTab('settings')">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </button>
+            </div>
+
+            <div id="stats" class="tab-content active">
+                <div class="stats-grid-profile">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Score</h3>
+                            <p class="stat-value" id="totalScoreProfile">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Games Played</h3>
+                            <p class="stat-value" id="gamesPlayedProfile">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Logic High Score</h3>
+                            <p class="stat-value" id="logicHighScore">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Memory High Score</h3>
+                            <p class="stat-value" id="memoryHighScore">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="achievements" class="tab-content">
+                <div class="achievements-grid" id="achievementsGrid">
+                    <!-- Achievements will be generated here -->
+                </div>
+            </div>
+
+            <div id="settings" class="tab-content">
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label for="settingsEmail">Email</label>
+                        <input type="email" id="settingsEmail" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="settingsPassword">New Password (leave blank to keep current)</label>
+                        <input type="password" id="settingsPassword" placeholder="Enter new password">
+                    </div>
+                    <div class="form-group">
+                        <label for="settingsConfirmPassword">Confirm Password</label>
+                        <input type="password" id="settingsConfirmPassword" placeholder="Confirm password">
+                    </div>
+                    <button class="btn btn-gradient" onclick="saveSettings()">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
+                </div>
+
+                <div class="danger-zone">
+                    <h3>Danger Zone</h3>
+                    <button class="btn btn-danger" onclick="deleteAccount()">
+                        <i class="fas fa-trash"></i>
+                        Delete Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

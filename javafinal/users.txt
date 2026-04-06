@@ -1,0 +1,4 @@
+siri|123456|5462009pr@gmail.com|0,0,0|0,0,0|1,1,20||
+Reader|123|thereader.nim@gmail.com|0,0,0|1,1,50|1,1,60||siri
+sree|123456789|kiyotakaayanokouji6969@gmail.com|0,0,0|0,0,0|0,0,0||
+Sri|123|srikhartetali.reddy@gmail.com|0,0,0|0,0,0|1,1,200||siri

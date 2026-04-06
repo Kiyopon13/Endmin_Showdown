@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endmin Showdown - Friends</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="animated-bg"></div>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <i class="fas fa-gamepad"></i>
+                <span>Endmin Showdown</span>
+            </div>
+            <div class="navbar-user">
+                <button class="btn-back" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="friends-header">
+            <h1>Friends</h1>
+            <p>Connect and compete with other players</p>
+        </div>
+
+        <div class="friends-controls">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search for players..."
+                    onkeyup="searchFriends()"
+                >
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchFriendsTab('my-friends')">
+                    <i class="fas fa-users"></i>
+                    My Friends
+                </button>
+                <button class="tab-btn" onclick="switchFriendsTab('find-friends')">
+                    <i class="fas fa-user-plus"></i>
+                    Find Friends
+                </button>
+            </div>
+        </div>
+
+        <div id="my-friends" class="tab-content active">
+            <div id="friendsList" class="friends-grid">
+                <!-- Friends list will be generated here -->
+            </div>
+        </div>
+
+        <div id="find-friends" class="tab-content">
+            <div id="suggestedFriends" class="friends-grid">
+                <!-- Suggested friends will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/friends.js"></script>
+</body>
+</html>

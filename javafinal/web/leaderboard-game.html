@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endmin Showdown - Game Leaderboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="animated-bg"></div>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <i class="fas fa-gamepad"></i>
+                <span>Endmin Showdown</span>
+            </div>
+            <div class="navbar-user">
+                <button class="btn-back" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="leaderboard-header">
+            <h1>Game Leaderboards</h1>
+            <p>Your ranking in each game</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('logic-lb')">
+                <i class="fas fa-brain"></i>
+                Logic Game
+            </button>
+            <button class="tab-btn" onclick="switchTab('memory-lb')">
+                <i class="fas fa-memory"></i>
+                Memory Game
+            </button>
+        </div>
+
+        <div id="logic-lb" class="tab-content active">
+            <div class="leaderboard-wrapper">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>High Score</th>
+                            <th>Level</th>
+                            <th>Games Played</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logicLeaderboard">
+                        <!-- Logic leaderboard rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="memory-lb" class="tab-content">
+            <div class="leaderboard-wrapper">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>High Score</th>
+                            <th>Level</th>
+                            <th>Games Played</th>
+                        </tr>
+                    </thead>
+                    <tbody id="memoryLeaderboard">
+                        <!-- Memory leaderboard rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/game-leaderboard.js"></script>
+</body>
+</html>
